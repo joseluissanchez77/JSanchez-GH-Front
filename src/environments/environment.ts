@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:49165/api/",
+  // apiUrl: "http://localhost:49165/api/",
+  apiUrl: "https://api-jose-sanchez-gh.azurewebsites.net/api/",
 };
 
 /*
