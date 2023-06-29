@@ -36,4 +36,10 @@ export class PersonService {
   updatePerson(person: PersonResponseI) {
     return this.http.put(`${this.URL_API}Person/${person.id}`, person);
   }
+
+  getByIdPersonInt(id: number) {
+    let direcion = `${this.URL_API}Person/id:int?id=${id}`;
+
+    return this.http.get<PersonResponseI>(direcion);
+  }
 }

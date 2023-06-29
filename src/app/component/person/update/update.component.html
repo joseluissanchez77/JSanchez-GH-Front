@@ -7,13 +7,13 @@
         <button type="button" (click)="cancelarPersona()" class="btn btn-danger">Atras </button>
         <hr>
 
-        <!-- <form [formGroup]="personForm" >
+        <form [formGroup]="personUpdateForm" >
 
             <div class="row">
                 <div class="col-sm-6">
                     <label for="exampleInputIdentificacion" class="form-label">Identificación</label>
                     <input formControlName="fcn_identification" type="text" class="form-control"
-                         id="exampleInputNombrePrimer" maxlength="10">
+                         id="exampleInputNombrePrimer" maxlength="10" [ngModel]="personForm.identification">
                     <div *ngIf="fcn_identification.invalid && ( fcn_identification.dirty || fcn_identification.touched )"
                         class="text-danger">
                         <div *ngIf="fcn_identification.errors?.['required']">
@@ -27,7 +27,7 @@
                 <div class="col-sm-6">
                     <label for="exampleInputNombreNombre" class="form-label">Primer Nombre</label>
                     <input formControlName="fcn_primer_nombre" type="text" class="form-control"
-                         id="exampleInputNombrePrimer">
+                         id="exampleInputNombrePrimer" [ngModel]="personForm.first_Name">
                     <div *ngIf="fcn_primer_nombre.invalid && ( fcn_primer_nombre.dirty || fcn_primer_nombre.touched )"
                         class="text-danger">
                         <div *ngIf="fcn_primer_nombre.errors?.['required']">
@@ -38,7 +38,7 @@
 
                 <div class="col-sm-6">
                     <label for="exampleInputSegundoNombre" class="form-label">Segundo Nombre</label>
-                    <input formControlName="fcn_second_Name" type="text" class="form-control"
+                    <input formControlName="fcn_second_Name" type="text" class="form-control" [ngModel]="personForm.second_Name"
                          id="exampleInputNombreSegundo">
                 </div> 
             </div>
@@ -47,7 +47,7 @@
                 <div class="col-sm-6">
                     <label for="exampleInputApellidoPrimer" class="form-label">Primer Apellido</label>
                     <input formControlName="fcn_first_Last_Name" type="text" class="form-control"
-                         id="exampleInputNombrePrimer">
+                         id="exampleInputNombrePrimer" [ngModel]="personForm.first_Last_Name">
                     <div *ngIf="fcn_first_Last_Name.invalid && ( fcn_first_Last_Name.dirty || fcn_first_Last_Name.touched )"
                         class="text-danger">
                         <div *ngIf="fcn_first_Last_Name.errors?.['required']">
@@ -58,7 +58,7 @@
 
                 <div class="col-sm-6">
                     <label for="exampleInputApellidoSegundo" class="form-label">Segundo Apellido</label>
-                    <input formControlName="fcn_second_Last_Name" type="text" class="form-control"
+                    <input formControlName="fcn_second_Last_Name" type="text" class="form-control" [ngModel]="personForm.second_Last_Name"
                          id="exampleInputNombreSegundo">
                     <div *ngIf="fcn_second_Last_Name.invalid && ( fcn_second_Last_Name.dirty || fcn_second_Last_Name.touched )"
                         class="text-danger">
@@ -74,7 +74,7 @@
 
                 <div class="col-sm-6">
                     <label for="exampleInputLugarNacimiento" class="form-label">Lugar de Nacimiento</label>
-                    <input formControlName="fcn_place_Of_Birth" type="text" class="form-control"
+                    <input formControlName="fcn_place_Of_Birth" type="text" class="form-control" [ngModel]="personForm.place_Of_Birth"
                          id="exampleInputLugarNacimiento">
                     <div *ngIf="fcn_place_Of_Birth.invalid && ( fcn_place_Of_Birth.dirty || fcn_place_Of_Birth.touched )"
                         class="text-danger">
@@ -86,8 +86,8 @@
 
                 <div class="col-sm-6">
                     <label for="exampleInputFechaNacimiento" class="form-label">Fecha Nacimineto</label>
-                    <input formControlName="fcn_date_Of_Birth" type="date" data-date-format="DD MMMM YYYY" class="form-control"
-                         id="exampleInputFechaNacimiento">
+                    <input formControlName="fcn_date_Of_Birth" type="date" data-date-format="DD MMMM YYYY" class="form-control" [ngModel]="personForm.date_Of_Birth"
+                         id="exampleInputFechaNacimiento" [ngModel]="personForm.date_Of_Birth" >
                     <div *ngIf="fcn_date_Of_Birth.invalid && ( fcn_date_Of_Birth.dirty || fcn_date_Of_Birth.touched )"
                         class="text-danger">
                         <div *ngIf="fcn_date_Of_Birth.errors?.['required']">
@@ -101,7 +101,7 @@
 
                 <div class="col-sm-6">
                     <label for="exampleInputNacionalidad" class="form-label">Nacionalidad</label>
-                    <input formControlName="fcn_nationality" type="text" class="form-control"
+                    <input formControlName="fcn_nationality" type="text" class="form-control" [ngModel]="personForm.nationality"
                          id="exampleInputNacionalidad">
                     <div *ngIf="fcn_nationality.invalid && ( fcn_nationality.dirty || fcn_nationality.touched )"
                         class="text-danger">
@@ -112,9 +112,9 @@
                 </div> 
 
                 <div class="col-sm-6">
-                    <label for="exampleInputDescripcion" class="form-label">Categoria</label>
+                    <label for="exampleInputDescripcion" class="form-label">Sexo</label>
                     <select formControlName="fcn_sexo" class="form-select"
-                        aria-label="Default select example" 
+                        aria-label="Default select example"  [ngModel]="personForm.sexo"
                         (change)="selection($event)">
                         <option value="" selected disabled>-Selecionar-</option>
                         <option value="Masculino">Masculino</option>
@@ -135,7 +135,7 @@
 
                 <div class="col-sm-6">
                     <label for="exampleInputDescripcion" class="form-label">Estado Marital</label>
-                    <select formControlName="fcn_marital_Status" class="form-select"
+                    <select formControlName="fcn_marital_Status" class="form-select" [ngModel]="personForm.marital_Status"
                         aria-label="Default select example" 
                         (change)="selection($event)">
                         <option value="" selected disabled>-Selecionar-</option>
@@ -162,6 +162,6 @@
                     <button type="button" (click)="cancelarPersona()" class="btn btn-danger">Cancelar </button>
                 </div>
             </div>
-        </form> -->
+        </form>
     </fieldset>
 </div>
