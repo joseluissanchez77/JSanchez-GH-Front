@@ -10,13 +10,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localeEs from "@angular/common/locales/es";
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateComponent } from './component/person/update/update.component';
 registerLocaleData(localeEs, "es");
 
 @NgModule({
   declarations: [
     AppComponent,
     SaveComponent,
-    ListComponent
+    ListComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

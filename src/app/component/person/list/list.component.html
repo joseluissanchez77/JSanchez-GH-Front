@@ -47,7 +47,7 @@
                     <td>
                         <button type="button" class="btn btn-primary me-1" (click)="viewPersonRowModal(item)"
                             title="Ver Todos los datos de la Persona"><i class="far fa-eye"></i>Ver</button>
-                        <button type="button" class="btn btn-success me-1"><i class="fas fa-edit"></i>Editar</button>
+                        <button type="button" class="btn btn-success me-1" (click)="btnUpdatePerson(item)"><i class="fas fa-edit"></i>Editar</button>
                         <button type="button" class="btn btn-danger" (click)="deletePersonRowConfirm(item)"
                             title="Eliminar Persona"><i class="far fa-trash-alt"></i>Borrar</button>
                     </td>

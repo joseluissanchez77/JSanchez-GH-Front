@@ -144,4 +144,8 @@ export class ListComponent implements OnInit {
   btnAddPerson(){
     this.router.navigate(["person-save"]);
   }
+  btnUpdatePerson($event:PersonResponseI){
+console.log($event);
+    this.router.navigate(["person-update"]);
+  }
 }
