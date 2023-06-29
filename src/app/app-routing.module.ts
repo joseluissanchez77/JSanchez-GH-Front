@@ -7,7 +7,7 @@ import { UpdateComponent } from './component/person/update/update.component';
 const routes: Routes = [
   {path:'', component:ListComponent},
   {path:'person-save', component:SaveComponent},
-  {path:'person-update', component:UpdateComponent}
+  {path:'person-update/:id', component:UpdateComponent}
 
 ];
 

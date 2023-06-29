@@ -32,4 +32,8 @@ export class PersonService {
   savePerson( person : PersonResponseI){
     return this.http.post(`${this.URL_API}Person`, person);
   }
+
+  updatePerson(person: PersonResponseI) {
+    return this.http.put(`${this.URL_API}Person/${person.id}`, person);
+  }
 }

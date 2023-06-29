@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PersonResponseI } from 'src/app/interface/person.interface';
@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class ListComponent implements OnInit {
 
+  
   @Input() objGetPerson: PersonResponseI[]|any = [];
   butDisabled: boolean = true;
 
@@ -145,7 +146,9 @@ export class ListComponent implements OnInit {
     this.router.navigate(["person-save"]);
   }
   btnUpdatePerson($event:PersonResponseI){
-console.log($event);
-    this.router.navigate(["person-update"]);
+
+    this.router.navigate(["person-update",$event.id]);
   }
+
+
 }
