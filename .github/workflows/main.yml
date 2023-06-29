@@ -7,9 +7,9 @@ jobs:
   build:
   runs-on: ubuntu-latest
   steps:
-    -name: Checkout repository
-    uses: actions/checkout@master
-
+    - name: Checkout repository
+      uses: actions/checkout@master
+    
     - name: Azure Container Registry
       uses: azure/docker-login@v1
       with:
