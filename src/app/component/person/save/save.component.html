@@ -7,26 +7,42 @@
         <button type="button" (click)="cancelarPersona()" class="btn btn-danger">Atras </button>
         <hr>
 
-        <!-- <form [formGroup]="formGroupPerson">
+        <form [formGroup]="personForm" >
 
-            <div class="col-sm-6">
-                <label for="exampleInputNombreNombre" class="form-label">Nombre</label>
-                <input formControlName="fcn_primer_nombre" type="text" class="form-control"
-                     id="exampleInputNombrePrimer">
-                     [ngModel]="productoForm.nombre"
-                <div *ngIf="fcn_primer_nombre.invalid && ( fcn_primer_nombre.dirty || fcn_primer_nombre.touched )"
-                    class="text-danger">
-                    <div *ngIf="fcn_primer_nombre.errors?.['required']">
-                        El Primer Nombre es requerido.
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="exampleInputIdentificacion" class="form-label">Identificación</label>
+                    <input formControlName="fcn_identification" type="text" class="form-control"
+                         id="exampleInputNombrePrimer" maxlength="10">
+                    <div *ngIf="fcn_identification.invalid && ( fcn_identification.dirty || fcn_identification.touched )"
+                        class="text-danger">
+                        <div *ngIf="fcn_identification.errors?.['required']">
+                            Identificación es requerido.
+                        </div>
                     </div>
-                </div>
-            </div> 
-        </form> -->
-        <div class="row">
-            <div class="col-sm-6">
-                <button type="submit" (click)="guardarPersona()" class="btn btn-primary me-3">Guardar </button>
-                <button type="button" (click)="cancelarPersona()" class="btn btn-danger">Cancelar </button>
+                </div> 
             </div>
-        </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="exampleInputNombreNombre" class="form-label">Nombre</label>
+                    <input formControlName="fcn_primer_nombre" type="text" class="form-control"
+                         id="exampleInputNombrePrimer">
+                    <div *ngIf="fcn_primer_nombre.invalid && ( fcn_primer_nombre.dirty || fcn_primer_nombre.touched )"
+                        class="text-danger">
+                        <div *ngIf="fcn_primer_nombre.errors?.['required']">
+                            El Primer Nombre es requerido.
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <button type="submit" (click)="guardarPersona()" class="btn btn-primary me-3">Guardar </button>
+                    <button type="button" (click)="cancelarPersona()" class="btn btn-danger">Cancelar </button>
+                </div>
+            </div>
+        </form>
     </fieldset>
 </div>

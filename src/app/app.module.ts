@@ -9,6 +9,7 @@ import { ListComponent } from './component/person/list/list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localeEs from "@angular/common/locales/es";
+import { ReactiveFormsModule } from '@angular/forms';
 registerLocaleData(localeEs, "es");
 
 @NgModule({
@@ -22,6 +23,7 @@ registerLocaleData(localeEs, "es");
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es' } 
