@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PersonResponseI } from 'src/app/interface/person.interface';
 import { PersonService } from 'src/app/service/person.service';
@@ -12,6 +13,7 @@ import Swal from 'sweetalert2';
 export class ListComponent implements OnInit {
 
   @Input() objGetPerson: PersonResponseI[]|any = [];
+  butDisabled: boolean = true;
 
   personForm : PersonResponseI ={
     id: 0,
@@ -30,9 +32,23 @@ export class ListComponent implements OnInit {
     updatedDate: undefined
   };
 
+  personViewForm = this.fb.group({
+    fcn_identification: [''],
+    fcn_primer_nombre: [''],
+    fcn_second_Name: [''],
+    fcn_first_Last_Name: [''],
+    fcn_second_Last_Name: [''],
+    fcn_place_Of_Birth: [''],
+    fcn_date_Of_Birth: [''],
+    fcn_nationality: [''],
+    fcn_sexo: [''],
+    fcn_marital_Status: [''],
+  });
+
   constructor(
     private personService: PersonService,
-    private router:Router
+    private router:Router,
+    private fb: FormBuilder,
     ) {
     this.listPerson();
   }
@@ -68,6 +84,7 @@ export class ListComponent implements OnInit {
     this.personService.getByIdPerson(data).subscribe({
       next: (rpt) => {
         // this.productos();
+        // this.personForm = rpt;
         this.personForm = rpt;
         console.log(rpt);
       },

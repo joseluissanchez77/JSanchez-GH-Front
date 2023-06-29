@@ -89,25 +89,92 @@
                     <div class="row">
                         <div class="col-sm-12">
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="exampleInputNombre" class="form-label">Nombres</label>
-                                    <input formControlName="fcn_nombre" type="text" class="form-control"
-                                         id="exampleInputNombre" [readonly]="true" >
-                                    <!-- [ngModel]="personForm.first_Name" -->
+                            <form [formGroup]="personViewForm" >
 
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="exampleInputIdentificacion" class="form-label">Identificación</label>
+                                        <input formControlName="fcn_identification" type="text" class="form-control"
+                                             id="exampleInputNombrePrimer" [ngModel]="personForm.identification" readonly="true">
+                                    </div> 
                                 </div>
 
-                                <div class="col-sm-6">
-                                    <label for="exampleInputNombre" class="form-label">Apellidos</label>
-                                    <input formControlName="fcn_nombre" type="text" class="form-control"
-                                        id="exampleInputNombre" [readonly]="true">
-                                    <!-- [ngModel]="productoForm.nombre" -->
 
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="exampleInputNombreNombre" class="form-label">Primer Nombre</label>
+                                        <input formControlName="fcn_primer_nombre" type="text" class="form-control"
+                                             id="exampleInputNombrePrimer" [ngModel]="personForm.first_Name" readonly="true">
+                                    </div> 
+                    
+                                    <div class="col-sm-6">
+                                        <label for="exampleInputSegundoNombre" class="form-label">Segundo Nombre</label>
+                                        <input formControlName="fcn_second_Name" type="text" class="form-control"
+                                             id="exampleInputNombreSegundo" [ngModel]="personForm.second_Name" readonly="true">
+                                        
+                                    </div> 
                                 </div>
-                            </div>
+                    
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="exampleInputApellidoPrimer" class="form-label">Primer Apellido</label>
+                                        <input formControlName="fcn_first_Last_Name" type="text" class="form-control"
+                                             id="exampleInputNombrePrimer" [ngModel]="personForm.first_Last_Name" readonly="true">
+                                        
+                                    </div> 
+                    
+                                    <div class="col-sm-6">
+                                        <label for="exampleInputApellidoSegundo" class="form-label">Segundo Apellido</label>
+                                        <input formControlName="fcn_second_Last_Name" type="text" class="form-control"
+                                             id="exampleInputNombreSegundo" [ngModel]="personForm.second_Last_Name" readonly="true">
+                                       
+                                    </div> 
+                                    
+                                </div>
+                    
+                                <div class="row">
+                    
+                                    <div class="col-sm-6">
+                                        <label for="exampleInputLugarNacimiento" class="form-label">Lugar de Nacimiento</label>
+                                        <input formControlName="fcn_place_Of_Birth" type="text" class="form-control"
+                                             id="exampleInputLugarNacimiento" [ngModel]="personForm.place_Of_Birth" readonly="true">
+                                        
+                                    </div> 
+                    
+                                    <div class="col-sm-6">
+                                        <label for="exampleInputFechaNacimiento" class="form-label">Fecha Nacimineto</label>
+                                        <input formControlName="fcn_date_Of_Birth" type="text" class="form-control"
+                                             id="exampleInputFechaNacimiento" [ngModel]="personForm.date_Of_Birth" readonly="true">
+                                        
+                                    </div> 
+                                </div>
+                    
+                                <div class="row">
+                    
+                                    <div class="col-sm-6">
+                                        <label for="exampleInputNacionalidad" class="form-label">Nacionalidad</label>
+                                        <input formControlName="fcn_nationality" type="text" class="form-control"
+                                             id="exampleInputNacionalidad" [ngModel]="personForm.nationality" readonly="true">
+                                        
+                                    </div> 
+                    
+                                    <div class="col-sm-6">
+                                        <label for="exampleInputDescripcion" class="form-label">Categoria</label>
+                                        <input formControlName="fcn_nationality" type="text" class="form-control"
+                                        id="exampleInputCategoria" [ngModel]="personForm.sexo" readonly="true">
+                                    </div>
+                                </div>
 
+                                <div class="row">
+                    
+                                    <div class="col-sm-6">
+                                        <label for="exampleInputDescripcion" class="form-label">Estado Marital</label>
+                                        <input formControlName="fcn_sexo" type="text" class="form-control"
+                                        id="exampleInputEstadoMarital" [ngModel]="personForm.marital_Status" readonly="true">
+                                    </div>
+                                </div>
 
+                            </form>
                         </div>
 
                     </div>
