@@ -25,7 +25,7 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                    <label for="exampleInputNombreNombre" class="form-label">Nombre</label>
+                    <label for="exampleInputNombreNombre" class="form-label">Primer Nombre</label>
                     <input formControlName="fcn_primer_nombre" type="text" class="form-control"
                          id="exampleInputNombrePrimer">
                     <div *ngIf="fcn_primer_nombre.invalid && ( fcn_primer_nombre.dirty || fcn_primer_nombre.touched )"
@@ -35,7 +35,132 @@
                         </div>
                     </div>
                 </div> 
+
+                <div class="col-sm-6">
+                    <label for="exampleInputSegundoNombre" class="form-label">Segundo Nombre</label>
+                    <input formControlName="fcn_second_Name" type="text" class="form-control"
+                         id="exampleInputNombreSegundo">
+                    <!-- <div *ngIf="fcn_second_Name.invalid && ( fcn_second_Name.dirty || fcn_second_Name.touched )"
+                        class="text-danger">
+                        <div *ngIf="fcn_second_Name.errors?.['required']">
+                            El Primer Nombre es requerido.
+                        </div>
+                    </div> -->
+                </div> 
             </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="exampleInputApellidoPrimer" class="form-label">Primer Apellido</label>
+                    <input formControlName="fcn_first_Last_Name" type="text" class="form-control"
+                         id="exampleInputNombrePrimer">
+                    <div *ngIf="fcn_first_Last_Name.invalid && ( fcn_first_Last_Name.dirty || fcn_first_Last_Name.touched )"
+                        class="text-danger">
+                        <div *ngIf="fcn_first_Last_Name.errors?.['required']">
+                            El Primer Apellido es requerido.
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-sm-6">
+                    <label for="exampleInputApellidoSegundo" class="form-label">Segundo Apellido</label>
+                    <input formControlName="fcn_second_Last_Name" type="text" class="form-control"
+                         id="exampleInputNombreSegundo">
+                    <div *ngIf="fcn_second_Last_Name.invalid && ( fcn_second_Last_Name.dirty || fcn_second_Last_Name.touched )"
+                        class="text-danger">
+                        <div *ngIf="fcn_second_Last_Name.errors?.['required']">
+                            El Segundo Apellido es requerido.
+                        </div>
+                    </div>
+                </div> 
+                
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <label for="exampleInputLugarNacimiento" class="form-label">Lugar de Nacimiento</label>
+                    <input formControlName="fcn_place_Of_Birth" type="text" class="form-control"
+                         id="exampleInputLugarNacimiento">
+                    <div *ngIf="fcn_place_Of_Birth.invalid && ( fcn_place_Of_Birth.dirty || fcn_place_Of_Birth.touched )"
+                        class="text-danger">
+                        <div *ngIf="fcn_place_Of_Birth.errors?.['required']">
+                            El Lugar de Nacimiento es requerido.
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-sm-6">
+                    <label for="exampleInputFechaNacimiento" class="form-label">Fecha Nacimineto</label>
+                    <input formControlName="fcn_date_Of_Birth" type="date" data-date-format="DD MMMM YYYY" class="form-control"
+                         id="exampleInputFechaNacimiento">
+                    <div *ngIf="fcn_date_Of_Birth.invalid && ( fcn_date_Of_Birth.dirty || fcn_date_Of_Birth.touched )"
+                        class="text-danger">
+                        <div *ngIf="fcn_date_Of_Birth.errors?.['required']">
+                            El Fecha de Nacimiento es requerido.
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <label for="exampleInputNacionalidad" class="form-label">Nacionalidad</label>
+                    <input formControlName="fcn_nationality" type="text" class="form-control"
+                         id="exampleInputNacionalidad">
+                    <div *ngIf="fcn_nationality.invalid && ( fcn_nationality.dirty || fcn_nationality.touched )"
+                        class="text-danger">
+                        <div *ngIf="fcn_nationality.errors?.['required']">
+                            Nacionalida es requerido.
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-sm-6">
+                    <label for="exampleInputDescripcion" class="form-label">Categoria</label>
+                    <select formControlName="fcn_sexo" class="form-select"
+                        aria-label="Default select example" 
+                        (change)="selection($event)">
+                        <option value="" selected disabled>-Selecionar-</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+                    <div *ngIf="fcn_sexo.invalid &&( fcn_sexo.dirty || fcn_sexo.touched )"
+                        class="text-danger">
+                        <div *ngIf="fcn_sexo.errors?.['required']">
+                            Sexo es requerido.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <label for="exampleInputDescripcion" class="form-label">Estado Marital</label>
+                    <select formControlName="fcn_marital_Status" class="form-select"
+                        aria-label="Default select example" 
+                        (change)="selection($event)">
+                        <option value="" selected disabled>-Selecionar-</option>
+                        <option value="Soltero">Soltero</option>
+                        <option value="Casado">Casado</option>
+                        <option value="Divorciado">Divorciado</option>
+                        <option value="Viudo">Viudo</option>
+                        <option value="Union Libre">Union Libre</option>
+                        <option value="Union de Hecho">Union de Hecho</option>
+                    </select>
+                    <div *ngIf="fcn_marital_Status.invalid &&( fcn_marital_Status.dirty || fcn_marital_Status.touched )"
+                        class="text-danger">
+                        <div *ngIf="fcn_marital_Status.errors?.['required']">
+                            Sexo es requerido.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <hr>
             <div class="row">
                 <div class="col-sm-6">

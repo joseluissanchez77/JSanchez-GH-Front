@@ -23,11 +23,16 @@ export class SaveComponent implements OnInit {
     fcn_marital_Status: ['', [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder, private router: Router,private personService: PersonService,) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private personService: PersonService
+  ) {}
 
   ngOnInit(): void {}
 
   guardarPersona() {
+    console.log(this.personForm);
     if (this.personForm.valid) {
       Swal.fire({
         title: 'Esta seguro de guardar persona?',
@@ -53,40 +58,50 @@ export class SaveComponent implements OnInit {
   }
 
   confirmarSave() {
-    
-      let data = {
-        id: 0,
-        identification: this.personForm.get('fcn_identification')?.value,
-        first_Name: this.personForm.get('fcn_nombre')?.value,
-        second_Name: this.personForm.get('fcn_nombre')?.value,
-        first_Last_Name: this.personForm.get('fcn_nombre')?.value,
-        second_Last_Name: this.personForm.get('fcn_nombre')?.value,
-        place_Of_Birth: this.personForm.get('fcn_nombre')?.value,
-        date_Of_Birth: this.personForm.get('fcn_nombre')?.value,
-        nationality: this.personForm.get('fcn_nombre')?.value,
-        sexo: this.personForm.get('fcn_nombre')?.value,
-        marital_Status: this.personForm.get('fcn_nombre')?.value,
-        photo: ''
-      };
-      this.personService.savePerson(data as any).subscribe({
-        next: (rpt) => {
-          this.router.navigate(['']);
-          // console.log(rpt);
-        },
-        error: (errorData) => {
-          console.log(errorData);
-          // this.loginError = errorData?.error?.detail;
-        },
-        complete: () => {
-          this.personForm.reset();
-          // this.formGroupProductos.get('fcn_categoria')?.setValue('');
-          Swal.fire('Guardado!', '', 'success');
-        },
-      });
-    
+    let data = {
+      id: 0,
+      identification: this.personForm.get('fcn_identification')?.value,
+      first_Name: this.personForm.get('fcn_primer_nombre')?.value,
+      second_Name: this.personForm.get('fcn_second_Name')?.value,
+      first_Last_Name: this.personForm.get('fcn_first_Last_Name')?.value,
+      second_Last_Name: this.personForm.get('fcn_second_Last_Name')?.value,
+      place_Of_Birth: this.personForm.get('fcn_place_Of_Birth')?.value,
+      date_Of_Birth: this.personForm.get('fcn_date_Of_Birth')?.value,
+      nationality: this.personForm.get('fcn_nationality')?.value,
+      sexo: this.personForm.get('fcn_sexo')?.value,
+      marital_Status: this.personForm.get('fcn_marital_Status')?.value,
+      photo: '',
+    };
+    this.personService.savePerson(data as any).subscribe({
+      next: (rpt) => {
+        this.personForm.reset();
+        this.personForm.get('fcn_sexo')?.setValue('');
+        this.personForm.get('fcn_marital_Status')?.setValue('');
+
+        this.router.navigate(['']);
+        // console.log(rpt);
+      },
+      error: (errorData) => {
+        console.log(errorData);
+        // this.loginError = errorData?.error?.detail;
+      },
+      complete: () => {
+        this.personForm.reset();
+        // this.formGroupProductos.get('fcn_categoria')?.setValue('');
+        Swal.fire('Guardado!', '', 'success');
+      },
+    });
   }
   cancelarPersona() {
+    this.personForm.reset();
+    this.personForm.get('fcn_sexo')?.setValue('');
+    this.personForm.get('fcn_marital_Status')?.setValue('');
     this.router.navigate(['']);
+  }
+
+  selection(event: any) {
+    console.log(event.target.value);
+    // let option = event.target.value;
   }
 
   /**
@@ -98,5 +113,29 @@ export class SaveComponent implements OnInit {
   }
   get fcn_identification() {
     return this.personForm.controls.fcn_identification;
+  }
+  get fcn_second_Name() {
+    return this.personForm.controls.fcn_second_Name;
+  }
+  get fcn_first_Last_Name() {
+    return this.personForm.controls.fcn_first_Last_Name;
+  }
+  get fcn_second_Last_Name() {
+    return this.personForm.controls.fcn_second_Last_Name;
+  }
+  get fcn_place_Of_Birth() {
+    return this.personForm.controls.fcn_place_Of_Birth;
+  }
+  get fcn_date_Of_Birth() {
+    return this.personForm.controls.fcn_date_Of_Birth;
+  }
+  get fcn_nationality() {
+    return this.personForm.controls.fcn_nationality;
+  }
+  get fcn_sexo() {
+    return this.personForm.controls.fcn_sexo;
+  }
+  get fcn_marital_Status() {
+    return this.personForm.controls.fcn_marital_Status;
   }
 }
